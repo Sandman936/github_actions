@@ -48,6 +48,16 @@ export const App = () => {
 			<button className={styles.link} onClick={() => ym.ym('reachGoal', 'buy')}>
 				Купить
 			</button>
+			<button
+				className={styles.link}
+				onClick={() =>
+					(window as any).gtag('event', 'add_to_cart', {
+						send_to: 'G-KH56L0KNT7', // указываем ID потока
+						event_name: 'add_to_cart',
+					})
+				}>
+				Купить в 1 клик
+			</button>
 		</div>
 	);
 };
