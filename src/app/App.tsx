@@ -15,7 +15,7 @@ const AnotherComponent = React.lazy(
 );
 
 export const App = () => {
-	const ym = useMetrika();
+	const { ym, gtag } = useMetrika();
 
 	return (
 		<div className={styles.page}>
@@ -45,16 +45,13 @@ export const App = () => {
 					}
 				/>
 			</Routes>
-			<button className={styles.link} onClick={() => ym.ym('reachGoal', 'buy')}>
+			<button className={styles.link} onClick={() => ym('reachGoal', 'buy')}>
 				Купить
 			</button>
 			<button
 				className={styles.link}
 				onClick={() =>
-					(window as any).gtag('event', 'add_to_cart', {
-						send_to: 'G-KH56L0KNT7', // указываем ID потока
-						event_name: 'add_to_cart',
-					})
+					gtag('event', 'add_to_cart', { event_name: 'add_to_cart' })
 				}>
 				Купить в 1 клик
 			</button>
